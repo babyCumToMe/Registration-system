@@ -5,10 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel = stylesheet href = "style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com" rel="stylesheet">
 </head>
 <body>
     <form>
-        <h1>Hello world</h1>
+        <div id = "entryDiv">
+            <div class = "entry-label-div">
+                <label for = "usernameEntry" class ="hiddenElement" >Username</label>
+                <input type = "text" data-default-text = "true" value = "Username" id = "usernameEntry" class = "empty-entry" onclick = "entryClick(this)" onblur = "emptyEntry(this)">
+            </div>
+
+            <div class = "entry-label-div">
+                <label for = "passwordEntry" class ="hiddenElement">Password</label>
+                <input type = "text" data-default-text = "true" value = "Password" id = "passwordEntry" class = "empty-entry" onclick = "entryClick(this)" onblur = "emptyEntry(this)">
+            </div> 
+        </div>     
+
+        <div id = "button-container">
+            <button type = "button" id = "register">Sign up</button>
+            <button type = "button" id = "login">Sign in</button>                
+        </div>
     </form>
     
     <script src = "script.js"></script>
