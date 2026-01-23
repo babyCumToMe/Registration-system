@@ -15,21 +15,21 @@
         <div id = "entryDiv">
             <div class = "entry-label-div">
                 <label for = "usernameEntry" class ="hiddenElement" >Username</label>
-                <input type = "text" data-default-text = "true" value = "Username" id = "usernameEntry" class = "empty-entry" onclick = "entryClick(this)" onblur = "emptyEntry(this)">
+                <input type = "text" data-default-text = "true" value = "Username" id = "usernameEntry" class = "empty-entry">
             </div>
 
             <div class = "entry-label-div">
                 <label for = "passwordEntry" class ="hiddenElement">Password</label>
-                <input type = "text" data-default-text = "true" value = "Password" id = "passwordEntry" class = "empty-entry" onclick = "entryClick(this)" onblur = "emptyEntry(this)">
+                <input type = "text" data-default-text = "true" value = "Password" id = "passwordEntry" class = "empty-entry">
             </div> 
         </div>     
 
         <div id = "button-container">
-            <button type = "button" id = "register">Sign up</button>
-            <button type = "button" id = "login">Sign in</button>                
+            <button type = "button" id = "registerBtn">Sign up</button>
+            <button type = "button" id = "loginBtn">Sign in</button>                
         </div>
     </form>
     
-    <script src = "script.js"></script>
+    <script type = "module" src = "loginScript.js"></script>
 </body>
 </html>

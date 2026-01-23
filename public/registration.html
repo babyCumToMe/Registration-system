@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+
+    <link rel = "stylesheet" href = "style.css">
+</head>
+<body>
+    <form>
+        <div id = "entryDiv">
+            <div class = "entry-label-div">
+                <label for = "usernameEntry" class ="hiddenElement" >Username</label>
+                <input type = "text" data-default-text = "true" value = "Username" id = "usernameEntry" class = "empty-entry" onclick = "entryClick(this)" onblur = "emptyEntry(this)">
+            </div>
+
+            <div class = "entry-label-div">
+                <label for = "passwordEntry" class ="hiddenElement">Password</label>
+                <input type = "text" data-default-text = "true" value = "Password" id = "passwordEntry" class = "empty-entry" onclick = "entryClick(this)" onblur = "emptyEntry(this)">
+            </div> 
+
+            <div class = "entry-label-div">
+                <label for = "ageEntry">Age</label>
+                <input type = "number" value = "0" id = "ageEntry">
+            </div>
+
+            <div class = "entry-label-div">
+                <label for = "emailEntry" class ="hiddenElement">Email</label>
+                <input type = "text" data-default-text = "true" value = "Email" id = "emailEntry" class = "empty-entry" onclick = "entryClick(this)" onblur = "emptyEntry(this)">
+            </div> 
+        </div>     
+
+        <div id = "button-container">
+            <button type = "button" id = "register" onclick = "register()">Sign up</button>         
+        </div>
+    </form>
+
+    <script src="registrationScript.js"></script>
+</body>
+</html>

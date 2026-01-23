@@ -49,6 +49,10 @@ form{
     gap: 5em;
 }
 
+#ageEntry{
+    color: black;
+}
+
 #button-container{
     display: flex;
     flex-direction: row;
@@ -117,11 +121,11 @@ button:hover{
     transform: scale(1.1);
 }
 
-#register{
+#registerBtn{
     background-color:navy;
 }
 
-#login{
+#loginBtn{
     background-color: orange;
 }
 
