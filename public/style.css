@@ -69,10 +69,6 @@ form{
     color: black;
 }
 
-.empty-entry{
-    color: grey;
-}
-
 .error-entry{
     color: maroon;
     border: 1px solid maroon;

@@ -12,22 +12,20 @@
         <div id = "entryDiv">
             <div class = "entry-label-div">
                 <label for = "usernameEntry" class ="hiddenElement" >Username</label>
-                <input type = "text" data-default-text = "true" value = "Username" id = "usernameEntry" class = "empty-entry" onclick = "entryClick(this)" onblur = "emptyEntry(this)">
+               <input type = "text" placeholder = "Username" id = "usernameEntry" autocomplete="off">
             </div>
 
             <div class = "entry-label-div">
                 <label for = "passwordEntry" class ="hiddenElement">Password</label>
-                <input type = "text" data-default-text = "true" value = "Password" id = "passwordEntry" class = "empty-entry" onclick = "entryClick(this)" onblur = "emptyEntry(this)">
-            </div> 
-
-            <div class = "entry-label-div">
-                <label for = "ageEntry">Age</label>
-                <input type = "number" value = "0" id = "ageEntry">
+                <input type = "text" placeholder = "Password" id = "passwordEntry" autocomplete="off">
             </div>
-
+            <div class = "entry-label-div">
+                <label for = "ageEntry" class ="hiddenElement">Age</label>
+                <input type = "number" placeholder="Age" id = "ageEntry" autocomplete="off" min="1" max="100">
+            </div>
             <div class = "entry-label-div">
                 <label for = "emailEntry" class ="hiddenElement">Email</label>
-                <input type = "text" data-default-text = "true" value = "Email" id = "emailEntry" class = "empty-entry" onclick = "entryClick(this)" onblur = "emptyEntry(this)">
+               <input type = "text" placeholder = "Email" id = "emailEntry" autocomplete="off">
             </div> 
         </div>     
 
@@ -36,7 +34,7 @@
         </div>
     </form>
 
-    <script src="registrationScript.js"></script>
+    <script type = "module" src="registrationScript.js"></script>
     <script src="http://localhost:35729/livereload.js"></script>
 </body>
 </html>

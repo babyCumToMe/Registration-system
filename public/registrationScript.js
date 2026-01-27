@@ -1,4 +1,4 @@
-import {entryMethods} from "./UI_effects"
+import {entryMethods, entryInput} from "./UI_effects.js";
 
 const usernameEntry = document.getElementById("usernameEntry");
 const passwordEntry = document.getElementById("passwordEntry");
@@ -16,12 +16,13 @@ function autoFill(){
 
     if(username){
         usernameEntry.value = username;   
-        
+        usernameEntry.dispatchEvent(new Event('input'));
+
         const tempPassword = localStorage.getItem("tempPassword");
 
         if(tempPassword){
             passwordEntry.value = tempPassword;
-            localStorage.removeItem("tempPassword");
+            passwordEntry.dispatchEvent(new Event('input'));
         }
     }
 }
