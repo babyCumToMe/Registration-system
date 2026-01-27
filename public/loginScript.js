@@ -1,14 +1,13 @@
-import { register } from "node:module";
 import { entryMethods } from "./UI_effects.js";
 
 const usernameEntry = document.getElementById("usernameEntry");
 const passwordEntry = document.getElementById("passwordEntry");
 const registerBtn = document.getElementById("registerBtn");
-const loginBtn = document.getElementsByName("loginBtn");
+const loginBtn = document.getElementById("loginBtn");
 
 entryMethods();
 registerBtn.addEventListener("click", toRegisterPg);
-loginBtn.addEventListener("click", login)
+loginBtn.addEventListener("click", login);
 
 async function login(){
     const username = usernameEntry.value;
@@ -25,9 +24,9 @@ async function toRegisterPg(){
             localStorage.setItem("tempPassword", password)
         }
        
-        window.location.href(`/registration?user=${username}`)
+        window.location.href = `/registration?user=${username}`
         return;
     }
 
-    window.location.href(`/registration`);
+    window.location.href=`/registration`;
 }

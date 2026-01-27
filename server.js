@@ -1,19 +1,39 @@
 const express = require("express");
-const cors = require("cors")
 const path = require("path")
 const app = express();
+const livereload = require("livereload");
+const connectLiveReload = require("connect-livereload");
+
+app.use((req, res, next) => {
+  res.setHeader(
+    "Content-Security-Policy",
+    "default-src 'self'; script-src 'self' 'unsafe-inline' http://localhost:35729; connect-src 'self' ws://localhost:35729;"
+  );
+  next();
+});
+
+//======DEV CODE (for automatic refreshing of front end)===//
+const liveReloadServer = livereload.createServer();
+liveReloadServer.watch(path.join(__dirname, "public"));
+
+liveReloadServer.server.once("connection", ()=>{
+    setTimeout( ()=>{
+        liveReloadServer.refresh("/");
+    }, 100)
+});
+
+app.use(connectLiveReload())
+//=====END OF DEV CODE=======//
 
 const {createUser} = require(path.join(__dirname, "userHandling.js"));
 
-app.use(cors())
 app.use(express.static("public"))
 
 app.get("/", (req, res)=>{
     res.sendFile(path.join(__dirname, "public", "index.html"));
-    res.end;
 });
 
-app.get('/register', (req, res) =>{
+app.get('/registration', (req, res) =>{
     res.sendFile(path.join(__dirname, "public", "registration.html"));
 })
 
