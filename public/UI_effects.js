@@ -1,5 +1,4 @@
 export function entryInput(){
-    console.log(this.value)
     if(this.value.length === 0){
         this.labels[0].classList.add("hiddenElement");
     }

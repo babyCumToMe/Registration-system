@@ -27,7 +27,8 @@ app.use(connectLiveReload())
 
 const {createUser} = require(path.join(__dirname, "userHandling.js"));
 
-app.use(express.static("public"))
+app.use(express.static("public"));
+app.use(express.json());
 
 app.get("/", (req, res)=>{
     res.sendFile(path.join(__dirname, "public", "index.html"));
@@ -38,8 +39,8 @@ app.get('/registration', (req, res) =>{
 })
 
 app.post("/registration", (req, res)=>{
-
-    
+    console.log(req.body);
+    res.json({message: "Received!"})
 })
 
 app.listen(5000, ()=>{
