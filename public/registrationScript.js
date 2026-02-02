@@ -37,14 +37,21 @@ async function registerUser(){
         'age': ageEntry.value,
         'email': emailEntry.value
     }
-    
-    const response = await fetch('/registration', {
-        method: 'POST',
-        headers: {
-            'Content-Type': "application/json" 
-        },
-        body: JSON.stringify(user)
-    })
 
-    const result = await response.json();
+    try{
+        const response = await fetch('/registration', {
+            method: 'POST',
+            headers: {
+                'Content-Type': "application/json" 
+            },
+            body: JSON.stringify(user)
+        })      
+
+        const result = await response.json();
+
+        console.log(response)
+    }
+    catch(err){
+        console.error(err);
+    }  
 }
