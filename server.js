@@ -25,7 +25,7 @@ liveReloadServer.server.once("connection", ()=>{
 app.use(connectLiveReload())
 //=====END OF DEV CODE=======//
 
-const {createUser, findUser, callFindByName} = require(path.join(__dirname, "userHandling.js"));
+const {createUser, findUser, getUserInfo} = require(path.join(__dirname, "userHandling.js"));
 
 app.use(express.static("public"));
 app.use(express.json());
@@ -49,6 +49,22 @@ app.post("/registration", async (req, res)=>{
     else{
         res.status(400).json({message: `${username} already exists. Could not create account`})
     }
+})
+
+app.get("/api/users/:username", async (req, res)=>{
+    const {username} = req.params;
+    if(await findUser(username)){
+        const userInfo = await getUserInfo(username);
+        
+        res.json(userInfo);
+    }
+    else{
+        res.status(404).json({error: "User not found"});
+    }
+})
+
+app.get("/homePage", (req, res) =>{
+    res.sendFile(path.join(__dirname, "public", "homePage.html"));
 })
 
 app.listen(5000, ()=>{

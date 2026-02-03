@@ -23,8 +23,11 @@ async function findUser(username){
     }
 }
 
-function callFindByName(){
-    User.findByName("Fuyo");
+
+function getUserInfo(username){
+    const user = User.findOne({username: new RegExp(username, "i")});
+    return user;
 }
 
-module.exports = {findUser, createUser, callFindByName}
+
+module.exports = {findUser, createUser, getUserInfo}

@@ -49,7 +49,13 @@ async function registerUser(){
 
         const result = await response.json();
 
-        console.log(response)
+        if(response.ok){            
+            window.localStorage.setItem("Username", usernameEntry.value);
+            window.location.href = `/homePage`;
+        }
+        else{
+
+        }
     }
     catch(err){
         console.error(err);
