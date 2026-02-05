@@ -1,4 +1,5 @@
 const display = document.getElementById("display");
+const changeBtn = document.getElementById("changeBtn");
 
 autoFill();
 

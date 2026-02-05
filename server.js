@@ -67,6 +67,25 @@ app.get("/homePage", (req, res) =>{
     res.sendFile(path.join(__dirname, "public", "homePage.html"));
 })
 
+app.post("/login", async (req, res)=>{
+    const {inputPassword, username} = req.body;
+    console.log(inputPassword, username)
+    if(!(await findUser)){
+        res.status(404).json({error: `${username} not found, consider signing up`});
+        return;
+    }
+
+    const {password} = await getUserInfo(username);
+
+    if(password !== inputPassword){
+        res.status(401).json({message: "Incorrect password"})
+        return;
+    }
+    
+    res.status(200).json({message: `${username} successfully logged in`})
+
+})
+
 app.listen(5000, ()=>{
     console.log("Server is listening on port 5000...")
 })

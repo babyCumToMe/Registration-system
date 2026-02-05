@@ -6,13 +6,32 @@ const registerBtn = document.getElementById("registerBtn");
 const loginBtn = document.getElementById("loginBtn");
 
 entryMethods();
+
 registerBtn.addEventListener("click", toRegisterPg);
 loginBtn.addEventListener("click", login);
 
 async function login(){
-    const username = usernameEntry.value;
+    const user ={
+    username: usernameEntry.value,
+    inputPassword: passwordEntry.value}
+    
+    const response = await fetch(`/login`,{
+        method: "POST",
+        headers:{
+            "Content-Type": "application/json"
+        },
+        
+        body: JSON.stringify(user)
+    });
 
-    await fetch(`http://localhost:5000/${username}`)
+    const result = response.json();
+
+    if(response.ok){
+        window.localStorage.setItem("Username", user.username)
+        window.location.href = "/homePage";        
+    }
+
+
 }
 
 async function toRegisterPg(){
@@ -22,10 +41,10 @@ async function toRegisterPg(){
     if(usernameEntry.dataset.defaultText !== "true"){  
         if(passwordEntry.dataset.defaultText !== "true"){
             localStorage.setItem("tempPassword", password)
-        }
        
         window.location.href = `/registration?user=${username}`
         return;
+        }
     }
 
     window.location.href=`/registration`;
