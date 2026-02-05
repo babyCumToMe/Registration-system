@@ -70,7 +70,7 @@ app.get("/homePage", (req, res) =>{
 app.post("/login", async (req, res)=>{
     const {inputPassword, username} = req.body;
     console.log(inputPassword, username)
-    if(!(await findUser)){
+    if(!(await findUser(username))){
         res.status(404).json({error: `${username} not found, consider signing up`});
         return;
     }
